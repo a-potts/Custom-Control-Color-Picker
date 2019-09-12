@@ -22,7 +22,11 @@ class ColorWheel: UIView {
         clipsToBounds = true
     }
     
-    var brightness: CGFloat = 0.8
+    var brightness: CGFloat = 0.8 {
+        didSet{
+            setNeedsDisplay()
+        }
+    }
 
     
     // Only override draw() if you perform custom drawing.

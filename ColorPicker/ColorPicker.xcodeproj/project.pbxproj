@@ -13,6 +13,7 @@
 		4584933E232AA4ED000EBA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4584933D232AA4ED000EBA15 /* Assets.xcassets */; };
 		45849341232AA4ED000EBA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4584933F232AA4ED000EBA15 /* LaunchScreen.storyboard */; };
 		45849349232AA5CD000EBA15 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45849348232AA5CD000EBA15 /* ColorWheel.swift */; };
+		4584934B232AB452000EBA15 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4584934A232AB452000EBA15 /* ColorPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		45849340232AA4ED000EBA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45849342232AA4ED000EBA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45849348232AA5CD000EBA15 /* ColorWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		4584934A232AB452000EBA15 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		4584932A232AA4EB000EBA15 = {
 			isa = PBXGroup;
 			children = (
+				4584934A232AB452000EBA15 /* ColorPicker.swift */,
 				45849348232AA5CD000EBA15 /* ColorWheel.swift */,
 				45849335232AA4EB000EBA15 /* ColorPicker */,
 				45849334232AA4EB000EBA15 /* Products */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45849339232AA4EB000EBA15 /* ViewController.swift in Sources */,
+				4584934B232AB452000EBA15 /* ColorPicker.swift in Sources */,
 				45849337232AA4EB000EBA15 /* AppDelegate.swift in Sources */,
 				45849349232AA5CD000EBA15 /* ColorWheel.swift in Sources */,
 			);
