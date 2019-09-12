@@ -26,6 +26,7 @@ class ColorPicker: UIControl {
     func setUpSubViews(){
         
         //Set up the color wheel/ Constrain
+        backgroundColor = .clear
         
         colorWheel = ColorWheel()
         colorWheel.translatesAutoresizingMaskIntoConstraints = false
@@ -70,20 +71,75 @@ class ColorPicker: UIControl {
     
     //MARK:  TouchTracking
     
+    var selectedColor: UIColor = .white
+    
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        <#code#>
+        //Get the location of the touch to get the color at that point
+        
+        let touchPoint = touch.location(in: colorWheel)
+        
+        if colorWheel.bounds.contains(touchPoint) {
+            
+            selectedColor = colorWheel.color(for: touchPoint)
+            sendActions(for: [.valueChanged, .touchUpInside])
+            
+        } else {
+            sendActions(for: [.touchDragOutside])
+            //if we touch outside color wheel we dont need to track
+            return false
+            
+        }
+        
+      
+        
+        //If you return true then you will continue tracking touches
+        return true
+        
     }
     
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        <#code#>
+        
+        let touchPoint = touch.location(in: colorWheel)
+        
+        if colorWheel.bounds.contains(touchPoint) {
+            
+            selectedColor = colorWheel.color(for: touchPoint)
+            sendActions(for: [.valueChanged, .touchUpInside])
+            
+        } else {
+            sendActions(for: [.touchDragOutside])
+            
+        }
+        return true
+        
+        
     }
     
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        <#code#>
+        
+        //Anything in the defer closure will get run right before we exit this scope
+        defer{
+            super.endTracking(touch, with: event)
+        }
+        
+        guard let touchPoint = touch?.location(in: colorWheel) else {return}
+        
+        if colorWheel.bounds.contains(touchPoint) {
+            
+            selectedColor = colorWheel.color(for: touchPoint)
+            sendActions(for: [.valueChanged, .touchUpInside])
+            
+        } else {
+            sendActions(for: [.touchDragOutside])
+            
+        }
+       
     }
     
     override func cancelTracking(with event: UIEvent?) {
-        <#code#>
+        
+        sendActions(for: [.touchCancel])
+        
     }
 
 }

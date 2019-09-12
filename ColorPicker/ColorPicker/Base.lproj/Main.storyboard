@@ -24,6 +24,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lPc-gS-y8s" secondAttribute="height" multiplier="1:1.1" id="jLb-ds-R3D"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="changeColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="KZb-EI-8YG"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,6 +37,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="colorPicker" destination="lPc-gS-y8s" id="nVo-vY-cJN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
