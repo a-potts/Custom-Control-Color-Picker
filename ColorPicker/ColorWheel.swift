@@ -12,6 +12,9 @@ class ColorWheel: UIView {
     
     
     override func layoutSubviews() {
+        
+        isUserInteractionEnabled = false
+        
         let radius = bounds.width / 2
         
         layer.cornerRadius = radius
