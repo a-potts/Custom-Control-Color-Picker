@@ -9,15 +9,46 @@
 import UIKit
 
 class ColorWheel: UIView {
+    
+    var brightness: CGFloat = 0.8
 
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         
-        
+        //Go through every point in the view and figure out what color it should be then draw it
+        for y in stride(from: 0, through: bounds.maxY, by: 1) {
+            for x in stride(from: 0, through: bounds.maxX, by: 1) {
+                let point = CGPoint(x: x, y: y)
+                
+                let color = self.color(for: point)
+                //This is the same as calling setFillColor
+                color.setFill()
+                
+                let pixel = CGRect(x: x, y: y, width: 1, height: 1)
+                
+                UIRectFill(pixel)
+                
+            }
+        }
         
     }
+    
+    
+    func color(for location: CGPoint) -> UIColor {
+        
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let dy = location.y - center.y
+        let dx = location.x - center.x
+        let offSet = CGPoint(x: dx / center.x, y: dy / center.y)
+        
+        let (hue, saturation) = getHueSaturation(at: offSet)
+        
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1.0)
+        
+    }
+    
     
     func getHueSaturation(at offset: CGPoint) -> (hue: CGFloat, saturation: CGFloat) {
         if offset == CGPoint.zero {
