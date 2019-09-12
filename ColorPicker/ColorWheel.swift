@@ -10,6 +10,18 @@ import UIKit
 
 class ColorWheel: UIView {
     
+    
+    override func layoutSubviews() {
+        let radius = bounds.width / 2
+        
+        layer.cornerRadius = radius
+        
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+        
+        clipsToBounds = true
+    }
+    
     var brightness: CGFloat = 0.8
 
     
